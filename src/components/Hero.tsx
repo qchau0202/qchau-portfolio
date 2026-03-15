@@ -4,7 +4,7 @@ const revealVariant = {
   hidden: { clipPath: "inset(0 0 100% 0)" },
   visible: {
     clipPath: "inset(0 0 0% 0)",
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
