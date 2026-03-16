@@ -7,49 +7,55 @@ interface ProjectCard {
   colSpan: string;
   rowSpan: string;
   featured?: boolean;
+  link: string;
 }
 
 const projects: ProjectCard[] = [
   {
-    title: "NeuroScan AI",
+    title: "Project One",
     description:
-      "AI-driven medical imaging platform using deep learning for real-time pathology detection. Achieves 94.7% accuracy on benchmark datasets with sub-200ms inference.",
-    tags: ["PyTorch", "FastAPI", "React", "Docker"],
+      "Placeholder description for your featured project. Replace with your actual project details.",
+    tags: ["React", "Node.js", "MongoDB"],
     colSpan: "md:col-span-8",
     rowSpan: "md:row-span-2",
     featured: true,
+    link: "https://github.com/qchau0202",
   },
   {
-    title: "CloudMesh",
+    title: "Project Two",
     description:
-      "Microservices-based community platform. Event-driven architecture handling 10K+ concurrent users.",
-    tags: ["Java", "Spring Boot", "Kafka", "K8s"],
+      "Placeholder description. Replace with your actual project details.",
+    tags: ["Next.js", "Supabase"],
     colSpan: "md:col-span-4",
     rowSpan: "md:row-span-1",
+    link: "https://github.com/qchau0202",
   },
   {
-    title: "DataForge CLI",
+    title: "Project Three",
     description:
-      "Command-line ETL pipeline tool for large-scale data transformation and validation workflows.",
-    tags: ["Python", "Click", "PostgreSQL"],
+      "Placeholder description. Replace with your actual project details.",
+    tags: ["Python", "FastAPI"],
     colSpan: "md:col-span-4",
     rowSpan: "md:row-span-1",
+    link: "https://github.com/qchau0202",
   },
   {
-    title: "Sentinel",
+    title: "Project Four",
     description:
-      "Real-time infrastructure monitoring dashboard with anomaly detection and automated alerting.",
-    tags: ["TypeScript", "Grafana", "Prometheus", "AWS"],
+      "Placeholder description. Replace with your actual project details.",
+    tags: ["Java", "Spring Boot", "MySQL"],
     colSpan: "md:col-span-6",
     rowSpan: "md:row-span-1",
+    link: "https://github.com/qchau0202",
   },
   {
-    title: "LangBridge",
+    title: "Project Five",
     description:
-      "NLP-powered translation API with context-aware multilingual support for technical documentation.",
-    tags: ["Python", "Transformers", "FastAPI"],
+      "Placeholder description. Replace with your actual project details.",
+    tags: ["MERN", "Docker"],
     colSpan: "md:col-span-6",
     rowSpan: "md:row-span-1",
+    link: "https://github.com/qchau0202",
   },
 ];
 
@@ -78,7 +84,9 @@ const ProjectsGrid = () => {
           {projects.map((project, index) => (
             <motion.a
               key={project.title}
-              href="#"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={cardVariant}
               initial="hidden"
               whileInView="visible"

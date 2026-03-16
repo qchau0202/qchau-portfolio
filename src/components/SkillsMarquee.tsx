@@ -1,7 +1,8 @@
 const skills = [
-  "JAVA", "PYTHON", "TYPESCRIPT", "FASTAPI", "SPRING BOOT",
-  "REACT", "DOCKER", "KUBERNETES", "AWS", "PYTORCH",
-  "POSTGRESQL", "KAFKA", "REDIS", "GRAPHQL", "TERRAFORM",
+  "REACTJS", "NEXTJS", "PYTHON", "JAVA", "JAVASCRIPT",
+  "MONGODB", "SUPABASE", "MYSQL", "GIT", "GITHUB",
+  "POSTMAN", "DOCKER", "HTML", "CSS", "MERN STACK",
+  "TRELLO", "JIRA", "NOTION",
 ];
 
 const SkillsMarquee = () => {

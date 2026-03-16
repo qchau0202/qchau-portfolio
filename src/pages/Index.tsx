@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import SkillsMarquee from "@/components/SkillsMarquee";
+import ExperienceSection from "@/components/ExperienceSection";
 import ContactFooter from "@/components/ContactFooter";
 
 const Index = () => {
@@ -9,6 +10,7 @@ const Index = () => {
       <Hero />
       <SkillsMarquee />
       <ProjectsGrid />
+      <ExperienceSection />
       <ContactFooter />
     </main>
   );
