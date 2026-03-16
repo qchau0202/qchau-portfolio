@@ -51,8 +51,8 @@ const Hero = () => {
             variants={revealVariant}
             className="col-span-12 md:col-span-7 lg:col-span-5 mt-8 md:mt-12 text-lg md:text-xl leading-relaxed text-muted-foreground font-medium tracking-[-0.02em]"
           >
-            Software Engineer student at the intersection of AI research
-            and scalable full-stack architecture.
+            Software Engineering student specializing in full-stack
+            development with the MERN stack and scalable web architectures.
           </motion.p>
 
           {/* Meta info */}
@@ -62,15 +62,15 @@ const Hero = () => {
           >
             <div>
               <span className="block text-foreground font-semibold mb-1">Location</span>
-              San Francisco, CA
+              HCM City, Vietnam
             </div>
             <div>
               <span className="block text-foreground font-semibold mb-1">Focus</span>
-              AI / ML & Full-Stack
+              Full-Stack & MERN
             </div>
             <div>
               <span className="block text-foreground font-semibold mb-1">Education</span>
-              B.S. Computer Science
+              SE Undergraduate
             </div>
           </motion.div>
         </motion.div>
