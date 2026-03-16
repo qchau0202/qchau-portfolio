@@ -62,15 +62,15 @@ const Hero = () => {
           >
             <div>
               <span className="block text-foreground font-semibold mb-1">Location</span>
-              San Francisco, CA
+              HCM City, Vietnam
             </div>
             <div>
               <span className="block text-foreground font-semibold mb-1">Focus</span>
-              AI / ML & Full-Stack
+              Full-Stack & MERN
             </div>
             <div>
               <span className="block text-foreground font-semibold mb-1">Education</span>
-              B.S. Computer Science
+              SE Undergraduate
             </div>
           </motion.div>
         </motion.div>
