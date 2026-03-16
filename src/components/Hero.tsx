@@ -41,9 +41,9 @@ const Hero = () => {
             variants={revealVariant}
             className="col-span-12 lg:col-span-10 text-balance font-black text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] leading-[0.9] tracking-[-0.05em]"
           >
-            ENGINEERING
+            LY HUNG
             <br />
-            INTELLIGENCE.
+            QUOC CHAU.
           </motion.h1>
 
           {/* Sub-headline */}

@@ -77,7 +77,7 @@ const ContactFooter = () => {
       {/* Footer bottom */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-foreground">
         <div className="container px-6 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs uppercase tracking-[0.15em] text-muted-foreground">
-          <span>© 2026</span>
+          <span>© 2026 Ly Hung Quoc Chau</span>
           <div className="flex gap-8">
             <a href="#" className="hover:text-foreground transition-colors">GitHub</a>
             <a href="#" className="hover:text-foreground transition-colors">LinkedIn</a>
