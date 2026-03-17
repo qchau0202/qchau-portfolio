@@ -21,7 +21,7 @@ const SkillsMarquee = () => {
     ));
 
   return (
-    <section className="border-b border-foreground overflow-hidden">
+    <section id="skills" className="border-b border-foreground overflow-hidden scroll-mt-32">
       <div className="h-20 md:h-24 flex items-center">
         <div className="animate-marquee flex whitespace-nowrap">
           {renderSkills()}

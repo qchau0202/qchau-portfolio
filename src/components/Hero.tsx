@@ -17,14 +17,9 @@ const staggerContainer = {
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-end border-b border-foreground">
+    <section id="hero" className="min-h-[85vh] flex flex-col justify-end border-b border-foreground pt-20">
       <div className="container px-6 md:px-8 pb-16 md:pb-24">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-12 gap-x-4"
-        >
+        <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="grid grid-cols-12 gap-x-4">
           {/* Status indicator */}
           <motion.div
             variants={revealVariant}
@@ -36,25 +31,29 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          {/* Main headline */}
-          <motion.h1
+          {/* Main content: headline + subheadline + photo */}
+          <motion.div
             variants={revealVariant}
-            className="col-span-12 lg:col-span-10 text-balance font-black text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] leading-[0.9] tracking-[-0.05em]"
+            className="col-span-12 lg:col-span-12 flex flex-col-reverse md:flex-row gap-10 md:gap-14 items-start md:items-evenly"
           >
-            LY HUNG
-            <br />
-            QUOC CHAU.
-          </motion.h1>
+            {/* Left column: headline + subheadline */}
+            <div className="w-full md:w-3/5 space-y-6">
+              <h1 className="text-balance font-black text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] leading-[0.9] tracking-[-0.05em]">
+                LY HUNG QUOC CHAU
+              </h1>
+              <p className="text-lg md:text-xl leading-relaxed text-muted-foreground font-medium tracking-[-0.02em]">
+                Software Engineering student specializing in full-stack development with the MERN stack and scalable web
+                architectures. Currently looking for internship opportunities.
+              </p>
+            </div>
 
-          {/* Sub-headline */}
-          <motion.p
-            variants={revealVariant}
-            className="col-span-12 md:col-span-7 lg:col-span-5 mt-8 md:mt-12 text-lg md:text-xl leading-relaxed text-muted-foreground font-medium tracking-[-0.02em]"
-          >
-            Software Engineering student specializing in full-stack
-            development with the MERN stack and scalable web architectures.
-          </motion.p>
-
+            {/* Right column: photo */}
+            <div className="w-full md:w-2/5 flex justify-center md:justify-center">
+              <div className="w-32 h-32 sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 border border-foreground/30 rounded-full overflow-hidden">
+                <img src="/qchau-avatar.jpeg" alt="Ly Hung Quoc Chau" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </motion.div>
           {/* Meta info */}
           <motion.div
             variants={revealVariant}
@@ -62,7 +61,7 @@ const Hero = () => {
           >
             <div>
               <span className="block text-foreground font-semibold mb-1">Location</span>
-              HCM City, Vietnam
+              District 8, Ho Chi Minh City, Vietnam
             </div>
             <div>
               <span className="block text-foreground font-semibold mb-1">Focus</span>
@@ -70,7 +69,11 @@ const Hero = () => {
             </div>
             <div>
               <span className="block text-foreground font-semibold mb-1">Education</span>
-              SE Undergraduate
+              Ton Duc Thang University (2023 - Present)
+            </div>
+            <div>
+              <span className="block text-foreground font-semibold mb-1">Degree</span>
+              Software Engineering Undergraduate
             </div>
           </motion.div>
         </motion.div>

@@ -17,6 +17,16 @@ interface TimelineItem {
 
 const experience: TimelineItem[] = [
   {
+    period: "08/2023 — 08/2024",
+    title: "English Demo Teacher",
+    org: "Kyna English",
+    details: [
+      "Taught English to children and adults years old.",
+      "Prepared lesson plans and materials for each class.",
+      "Maintained a positive and engaging learning environment.",
+    ],
+  },
+  {
     period: "08/2024 — 09/2024",
     title: "R&D Intern",
     org: "MindX Technology School",
@@ -26,9 +36,30 @@ const experience: TimelineItem[] = [
       "Delivered fully functional Lecturer view interface.",
     ],
   },
+  {
+    period: "08/2023 — Now",
+    title: "English Tutor",
+    org: "Self-employed",
+    details: [
+      "Taught Pre-IELTS, TOEIC, and Communication English to children and adults years old.",
+      "Prepared lesson plans and materials for each class.",
+      "Maintained a positive and engaging learning environment.",
+    ],
+  },
+  {
+    period: "07/2025 — Now",
+    title: "Coding & Robotic Teaching Assistant",
+    org: "MindX Technology School",
+    details: [
+      "Assisted teachers in teaching coding and robotics to students.",
+      "Helped students with their coding and robotics projects.",
+      "Provided feedback and guidance to students.",
+    ],
+  },
 ];
 
 const awards = [
+  { year: "2025", title: "Top 16, HSU Vibe Coding Challenge" },
   { year: "2025", title: "Top-scorers, TalentGetGo Coding Challenge 2" },
   { year: "2025", title: "Runners-Up, Innostart Startup Challenge" },
   { year: "2025", title: "4th, UTE Junior Startup Challenge" },
@@ -48,14 +79,14 @@ const certifications = [
 
 const languages = [
   { lang: "Vietnamese", level: "Native" },
-  { lang: "English", level: "B2" },
+  { lang: "English", level: "C1" },
   { lang: "Japanese", level: "A1" },
   { lang: "Chinese", level: "Beginner" },
 ];
 
 const ExperienceSection = () => {
   return (
-    <section className="border-b border-foreground">
+    <section id="experience" className="border-b border-foreground scroll-mt-32">
       <div className="container px-6 md:px-8 py-16 md:py-24">
         {/* Work Experience */}
         <div className="mb-20">
@@ -96,8 +127,8 @@ const ExperienceSection = () => {
           ))}
         </div>
 
-        {/* Awards */}
-        <div className="mb-20">
+        {/* Awards & Activities */}
+        <section id="awards" className="mb-20 scroll-mt-32">
           <h2 className="text-xs uppercase tracking-[0.2em] font-semibold mb-12">
             Awards & Activities
           </h2>
@@ -120,11 +151,11 @@ const ExperienceSection = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Certifications & Languages */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
+        {/* Certifications */}
+        <section id="certifications" className="grid grid-cols-1 md:grid-cols-2 gap-16 scroll-mt-32">
+          <div className="md:col-span-1">
             <h2 className="text-xs uppercase tracking-[0.2em] font-semibold mb-12">
               Certifications
             </h2>
@@ -147,7 +178,8 @@ const ExperienceSection = () => {
             </div>
           </div>
 
-          <div>
+          {/* Languages */}
+          <div className="md:col-span-1">
             <h2 className="text-xs uppercase tracking-[0.2em] font-semibold mb-12">
               Languages
             </h2>
@@ -169,7 +201,7 @@ const ExperienceSection = () => {
               ))}
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );

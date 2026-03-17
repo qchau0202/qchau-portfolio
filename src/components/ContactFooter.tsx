@@ -1,146 +1,133 @@
-import { useRef, useState } from "react";
-import { motion, useSpring } from "framer-motion";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { useState } from "react";
 
 const ContactFooter = () => {
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const [resumeOpen, setResumeOpen] = useState(false);
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const springConfig = { damping: 25, stiffness: 300 };
-  const x = useSpring(0, springConfig);
-  const y = useSpring(0, springConfig);
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("quocchau4729@gmail.com");
+  };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (!buttonRef.current) return;
-    const rect = buttonRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distX = e.clientX - centerX;
-    const distY = e.clientY - centerY;
-    const distance = Math.sqrt(distX * distX + distY * distY);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormValues((prev) => ({ ...prev, [name]: value }));
+  };
 
-    if (distance < 150) {
-      x.set(distX * 0.3);
-      y.set(distY * 0.3);
-      setIsHovering(true);
-    } else {
-      x.set(0);
-      y.set(0);
-      setIsHovering(false);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const { name, email, subject, message } = formValues;
+    if (!name || !email || !subject || !message) {
+      return;
     }
-  };
 
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setIsHovering(false);
-  };
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n");
 
-  const handleClick = () => {
-    navigator.clipboard.writeText("hello@engineer.dev");
+    const mailto = `mailto:quocchau4729@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
   };
 
   return (
     <>
       <footer
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="min-h-[70vh] flex flex-col items-center justify-center relative border-b border-foreground"
+        className="min-h-[70vh] flex flex-col items-center justify-center py-16"
       >
         <div className="text-center mb-16">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">
-            Let's build something
+            Contact me
           </p>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-balance">
             GET IN TOUCH
           </h2>
         </div>
 
-        <motion.div
-          ref={buttonRef}
-          style={{ x, y }}
-          onClick={handleClick}
-          className={`w-40 h-40 md:w-48 md:h-48 border border-foreground flex items-center justify-center cursor-pointer transition-colors duration-200 ${
-            isHovering ? "bg-foreground text-primary-foreground" : "bg-background text-foreground"
-          }`}
+        {/* Contact form */}
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-xl mx-auto mb-12 grid grid-cols-1 gap-4 text-sm"
         >
-          <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.15em] font-semibold block">
-              Copy Email
-            </span>
-            <span
-              className="text-[10px] uppercase tracking-[0.1em] text-muted-foreground mt-1 block"
-              style={isHovering ? { color: "hsl(0 0% 70%)" } : {}}
-            >
-              ↗ Click
-            </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-1 text-left">
+              <label className="uppercase tracking-[0.15em] text-xs text-muted-foreground">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                required
+                value={formValues.name}
+                onChange={handleChange}
+                className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              />
+            </div>
+            <div className="flex flex-col gap-1 text-left">
+              <label className="uppercase tracking-[0.15em] text-xs text-muted-foreground">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formValues.email}
+                onChange={handleChange}
+                className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              />
+            </div>
           </div>
-        </motion.div>
+          <div className="flex flex-col gap-1 text-left">
+            <label className="uppercase tracking-[0.15em] text-xs text-muted-foreground">
+              Subject
+            </label>
+            <input
+              type="text"
+              name="subject"
+              required
+              value={formValues.subject}
+              onChange={handleChange}
+              className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+            />
+          </div>
+          <div className="flex flex-col gap-1 text-left">
+            <label className="uppercase tracking-[0.15em] text-xs text-muted-foreground">
+              Message
+            </label>
+            <textarea
+              name="message"
+              required
+              value={formValues.message}
+              onChange={handleChange}
+              rows={5}
+              className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground resize-none"
+            />
+          </div>
+          <div className="flex items-center justify-between flex-col sm:flex-row gap-4 pt-2">
+            <button
+              type="submit"
+              className="px-6 py-2 border border-foreground bg-foreground text-background uppercase tracking-[0.15em] text-xs font-semibold hover:bg-background hover:text-foreground transition-colors"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+
 
         {/* Footer bottom */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-foreground">
+        <div className="border-t border-foreground">
           <div className="container px-6 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs uppercase tracking-[0.15em] text-muted-foreground">
             <span>© 2026 Ly Hung Quoc Chau</span>
-            <div className="flex gap-8">
-              <a
-                href="https://github.com/qchau0202"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/quốc-châu-jo-b71879269"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
-              >
-                LinkedIn
-              </a>
-              <button
-                onClick={() => setResumeOpen(true)}
-                className="hover:text-foreground transition-colors uppercase"
-              >
-                Resume
-              </button>
-            </div>
           </div>
         </div>
       </footer>
-
-      {/* Resume Dialog */}
-      <Dialog open={resumeOpen} onOpenChange={setResumeOpen}>
-        <DialogContent className="max-w-3xl h-[80vh]">
-          <DialogHeader>
-            <DialogTitle className="text-sm uppercase tracking-[0.2em] font-semibold">
-              Resume — Ly Hung Quoc Chau
-            </DialogTitle>
-            <DialogDescription className="text-xs text-muted-foreground">
-              PDF resume preview
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex-1 flex items-center justify-center border border-foreground/10 h-full">
-            {/* Replace the src below with your actual PDF URL */}
-            <p className="text-sm text-muted-foreground uppercase tracking-[0.15em]">
-              PDF placeholder — replace with your resume file
-            </p>
-            {/* When you have a PDF, replace the <p> above with:
-            <iframe
-              src="/your-resume.pdf"
-              className="w-full h-full"
-              title="Resume"
-            /> */}
-          </div>
-        </DialogContent>
-      </Dialog>
     </>
   );
 };

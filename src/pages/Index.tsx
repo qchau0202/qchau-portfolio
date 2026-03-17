@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import SkillsMarquee from "@/components/SkillsMarquee";
@@ -7,11 +8,16 @@ import ContactFooter from "@/components/ContactFooter";
 const Index = () => {
   return (
     <main className="bg-background text-foreground">
+      <Header />
       <Hero />
       <SkillsMarquee />
-      <ProjectsGrid />
+      <div id="projects" className="scroll-mt-32">
+        <ProjectsGrid />
+      </div>
       <ExperienceSection />
-      <ContactFooter />
+      <div id="contact" className="scroll-mt-32">
+        <ContactFooter />
+      </div>
     </main>
   );
 };
