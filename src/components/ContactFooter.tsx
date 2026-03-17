@@ -51,7 +51,7 @@ const ContactFooter = () => {
   return (
     <>
       <footer
-        className="min-h-[70vh] flex flex-col items-center justify-center py-16"
+        className="min-h-[70vh] flex flex-col items-center justify-center py-16 px-6 md:px-8"
       >
         <div className="text-center mb-10">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">
@@ -108,7 +108,7 @@ const ContactFooter = () => {
                 required
                 value={formValues.name}
                 onChange={handleChange}
-                className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                className="w-full border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
               />
             </div>
             <div className="flex flex-col gap-1 text-left">
@@ -121,7 +121,7 @@ const ContactFooter = () => {
                 required
                 value={formValues.email}
                 onChange={handleChange}
-                className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                className="w-full border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
               />
             </div>
           </div>
@@ -135,7 +135,7 @@ const ContactFooter = () => {
               required
               value={formValues.subject}
               onChange={handleChange}
-              className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              className="w-full border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground"
             />
           </div>
           <div className="flex flex-col gap-1 text-left">
@@ -148,13 +148,13 @@ const ContactFooter = () => {
               value={formValues.message}
               onChange={handleChange}
               rows={5}
-              className="border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground resize-none"
+              className="w-full border border-foreground/30 bg-background px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-foreground resize-none"
             />
           </div>
           <div className="flex items-center justify-between flex-col sm:flex-row gap-4 pt-2">
             <button
               type="submit"
-              className="px-6 py-2 border border-foreground bg-foreground text-background uppercase tracking-[0.15em] text-xs font-semibold hover:bg-background hover:text-foreground transition-colors"
+              className="w-full sm:w-auto px-6 py-2 border border-foreground bg-foreground text-background uppercase tracking-[0.15em] text-xs font-semibold hover:bg-background hover:text-foreground transition-colors"
             >
               Send Message
             </button>
