@@ -53,9 +53,9 @@ const Hero = () => {
             <div className="w-full md:w-1/2 flex justify-center md:justify-center">
               <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 border border-foreground/30 rounded-full overflow-hidden">
                 <img
-                  src="/qchau-avatar-nobg.png"
+                  src="/qchau-avatar.jpeg"
                   alt="Ly Hung Quoc Chau"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
