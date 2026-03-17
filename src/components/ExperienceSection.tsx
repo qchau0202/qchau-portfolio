@@ -70,11 +70,11 @@ const awards = [
 ];
 
 const certifications = [
-  { title: "TOEIC 930/990", date: "02/2025" },
+  { title: "TOEIC 930/990", date: "02/2026" },
   { title: "JLPT N5", date: "01/2026" },
   { title: "IELTS 6.5", date: "03/2023 — 03/2025" },
   { title: "Vocational Basic-level Training Certificate", date: "2025" },
-  { title: "Multiple Web Development Certificates — MindX", date: "2020 — 2024" },
+  { title: "Multiple Web Development Certificates — MindX", date: "2020 — 2025" },
 ];
 
 const languages = [
