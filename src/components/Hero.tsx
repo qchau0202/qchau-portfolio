@@ -34,12 +34,14 @@ const Hero = () => {
           {/* Main content: headline + subheadline + photo */}
           <motion.div
             variants={revealVariant}
-            className="col-span-12 lg:col-span-12 flex flex-col-reverse md:flex-row gap-10 md:gap-14 items-start md:items-evenly"
+            className="col-span-12 flex flex-col-reverse md:flex-row gap-10 md:gap-14 items-center md:items-center"
           >
             {/* Left column: headline + subheadline */}
-            <div className="w-full md:w-3/5 space-y-6">
+            <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
               <h1 className="text-balance font-black text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] leading-[0.9] tracking-[-0.05em]">
-                LY HUNG QUOC CHAU
+                LY HUNG
+                <br />
+                QUOC CHAU
               </h1>
               <p className="text-lg md:text-xl leading-relaxed text-muted-foreground font-medium tracking-[-0.02em]">
                 Software Engineering student specializing in full-stack development with the MERN stack and scalable web
@@ -48,9 +50,13 @@ const Hero = () => {
             </div>
 
             {/* Right column: photo */}
-            <div className="w-full md:w-2/5 flex justify-center md:justify-center">
-              <div className="w-32 h-32 sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 border border-foreground/30 rounded-full overflow-hidden">
-                <img src="/qchau-avatar.jpeg" alt="Ly Hung Quoc Chau" className="w-full h-full object-cover" />
+            <div className="w-full md:w-1/2 flex justify-center md:justify-center">
+              <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 border border-foreground/30 rounded-full overflow-hidden">
+                <img
+                  src="/qchau-avatar-nobg.png"
+                  alt="Ly Hung Quoc Chau"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
           </motion.div>
