@@ -1,16 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const ContactFooter = () => {
+  const emailAddress = "quocchau4729@gmail.com";
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+  const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("quocchau4729@gmail.com");
+    navigator.clipboard.writeText(emailAddress);
+    setCopied(true);
   };
+
+  useEffect(() => {
+    if (!copied) return;
+    const t = window.setTimeout(() => setCopied(false), 1400);
+    return () => window.clearTimeout(t);
+  }, [copied]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -33,7 +44,7 @@ const ContactFooter = () => {
       message,
     ].join("\n");
 
-    const mailto = `mailto:quocchau4729@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
   };
 
@@ -42,7 +53,7 @@ const ContactFooter = () => {
       <footer
         className="min-h-[70vh] flex flex-col items-center justify-center py-16"
       >
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">
             Contact me
           </p>
@@ -50,6 +61,36 @@ const ContactFooter = () => {
             GET IN TOUCH
           </h2>
         </div>
+
+        {/* Quick contact: click email to copy */}
+        <TooltipProvider>
+          <div className="w-full max-w-xl mx-auto mb-4">
+            <Tooltip delayDuration={150}>
+              <TooltipTrigger asChild>
+                <motion.button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="w-full border border-foreground/30 bg-background px-4 py-3 text-left hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                  aria-label="Copy email to clipboard"
+                >
+                  <div className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold">
+                    Email
+                  </div>
+                  <div className="font-semibold tracking-[-0.01em] break-all">
+                    {emailAddress}
+                  </div>
+                </motion.button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs uppercase tracking-[0.15em] font-semibold">
+                  {copied ? "Copied!" : "Click to copy"}
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+        </TooltipProvider>
 
         {/* Contact form */}
         <form
