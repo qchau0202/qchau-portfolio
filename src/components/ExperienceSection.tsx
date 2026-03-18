@@ -98,8 +98,7 @@ const ExperienceSection = () => {
               key={item.title}
               variants={revealVariant}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              animate="visible"
               className="grid grid-cols-1 md:grid-cols-12 gap-4 border-t border-foreground py-8"
             >
               <div className="md:col-span-3">
@@ -138,8 +137,7 @@ const ExperienceSection = () => {
                 key={i}
                 variants={revealVariant}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
+                animate="visible"
                 className="grid grid-cols-12 gap-4 py-4 border-b border-foreground/10"
               >
                 <span className="col-span-3 md:col-span-2 text-xs text-muted-foreground uppercase tracking-[0.15em] tabular-nums">
@@ -165,8 +163,7 @@ const ExperienceSection = () => {
                   key={i}
                   variants={revealVariant}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-30px" }}
+                  animate="visible"
                   className="flex justify-between py-4 border-b border-foreground/10"
                 >
                   <span className="text-sm font-medium">{cert.title}</span>
@@ -189,8 +186,7 @@ const ExperienceSection = () => {
                   key={i}
                   variants={revealVariant}
                   initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-30px" }}
+                  animate="visible"
                   className="flex justify-between py-4 border-b border-foreground/10"
                 >
                   <span className="text-sm font-medium">{lang.lang}</span>

@@ -138,8 +138,7 @@ const ProjectsGrid = () => {
               key={project.title}
               variants={cardVariant}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              animate="visible"
               whileHover={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
               className={`${project.colSpan} ${project.rowSpan} col-span-1 border-r border-b border-foreground p-6 md:p-8 flex flex-col justify-between gap-8 bg-background hover:bg-foreground hover:text-primary-foreground transition-colors duration-200 group`}
